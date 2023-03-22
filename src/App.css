@@ -47,3 +47,11 @@
   margin: 20px;
   padding: 5;
 }
+
+.product {
+  background-color: lightpink;
+  padding: 15px;
+  border: 3px solid maroon;
+  margin: 15px;
+  border-radius: 20px;
+}

@@ -1,70 +1,92 @@
+import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
-
-const singers = [
-  { name: 'Dr. Mahfuz', job: 'Singer' },
-  { name: 'Eva Rahman', job: 'Singer2' },
-  { name: 'Agun', job: 'sopno' },
-  { name: 'shuvro', job: 'pathor' }
-]
 function App() {
-
-  const nayoks = ['Rubel', 'BappaDa', 'Kuber', 'Jashim', 'Salman Shah', 'Riyaz', 'Anwar'];
-
   return (
     <div className="App">
-
-      {
-        nayoks.map(nayok => <li>{nayok} </li>)
-      }
-
-      {
-        singers.map(singer => <Persion
-          name={singer.name}
-        >
-
-        </Persion>)
-      }
-
-
-      {/* <Persion name={nayoks[0]} nayeka="sadiya"></Persion> */}
-      {/* <Persion name="sadiya"></Persion> */}
-      <h1> amar sonar bangla</h1>
-
-      <Friend />
-      <Persion></Persion>
-      <Persion></Persion>
-
-
+      {/* <Counter></Counter> */}
+      <ExternalUsers></ExternalUsers>
     </div>
   );
 }
+function ExternalUsers() {
+  const [users, setUsers] = useState([]);
+  // useEffect( ()=>{}, [])
+  // const myfunc = () => {}
+  useEffect(() => {
 
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
 
+  }, []);
 
-function Persion(props) {
-  console.log(props);
   return (
-    <div className="persion">
-
-      <h3>  {props.name} </h3>
-      <p> {props.nayeka}</p>
-    </div>
-
-  )
-
-}
-function Friend() {
-  return (
-
     <div>
-      <h2> Shohan</h2>
-
-      <h2> Rahul</h2>
+      <h2>External Users</h2>
+      <p>{users.length}</p>
+      {
+        users.map(user => <User name={user.name} email={user.email}></User>)
+      }
     </div>
   )
-
 }
 
+function User(props) {
+  return (
+    <div style={{ border: '2px solid red', margin: '20px' }}>
+      <h3>Name: {props.name}</h3>
+      <p>Email: {props.email}</p>
+    </div>
+  )
+}
+
+function Counter() {
+  const [count, setCount] = useState(55);
+
+  const increaseCount = () => setCount(count + 1);
+  const decreaseCount = () => setCount(count - 1);
+
+  // const increaseCount = () =>{
+  //   const newCount = count + 1;
+  //   setCount(newCount);
+  // }
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={increaseCount}>Increase</button>
+      <button onClick={decreaseCount}>Decrease</button>
+    </div>
+  )
+}
+
+/*
+const products = [
+    {name: 'laptopoo', price: 153000},
+    {name: 'phoneee', price: 93000},
+    {name: 'watchuu', price: 33000},
+    {name: 'tabletoo', price: 5000},
+  ]
+
+*/
+
+
+/* {
+//   products.map(product=> <Product name={product.name} price={product.price}></Product>)
+// }
+// <Product name="laptop" price="47000"></Product>
+// <Product name="phone" price="75000"></Product>
+// <Product name="watch" price="3500"></Product>
+*/
+function Product(props) {
+  return (
+    <div className="product">
+      <h3>Name: {props.name}</h3>
+      <p>Price: {props.price}</p>
+    </div>
+  )
+}
 
 export default App;

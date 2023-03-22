@@ -36,15 +36,34 @@ ReactDOM.render(element, document.getElementById("root"));
 
 <details>
 <summary>
-  বাংলায় পড়ুন
+ What is useState in react.js
+
 </summary>
+<br >
+
+- In React.js, useState is a hook that allows you to add state to a functional component. State is an object that holds data that may change over time, and by using the useState hook, you can manage state within a functional component.
+
+- Here is an example of how you can use the useState hook in React:
 
 ```js
+import React, { useState } from "react";
 
+function Example() {
+  // Declare a new state variable called "count" with initial value of 0
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
 ```
 
-<br >
-  
+- In this example, useState is used to declare a new state variable called "count" and initialize it to 0. The setCount function is used to update the value of "count". When the button is clicked, the setCount function is called with the new value of "count", which triggers a re-render of the component with the updated value.
+
+- Using useState makes it easy to manage state within a functional component, and allows you to update the state and re-render the component based on user interactions or other events.
 -
 
 </details>
