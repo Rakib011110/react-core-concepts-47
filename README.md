@@ -70,15 +70,45 @@ function Example() {
 
 <details>
 <summary>
-  বাংলায় পড়ুন
+ what is component in react
 </summary>
+<br >
+
+- Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.
 
 ```js
 
 ```
 
+-
+
+</details>
+
+<details>
+<summary>
+ What is props in react.js
+
+</summary>
 <br >
-  
+
+- In React.js, "props" is short for "properties" and refers to a mechanism for passing data from a parent component to a child component.
+
+- When a parent component renders a child component, it can pass data to the child by including it as a prop. The child component can then access the data via its props object.
+
+Here's an example of passing a prop to a child component in React
+
+```js
+// Parent Component
+function Parent() {
+  return <Child name="sadiya" />;
+}
+
+// Child Component
+function Child(props) {
+  return <p>Hello, {props.name}!</p>;
+}
+```
+
 -
 
 </details>
@@ -87,43 +117,12 @@ function Example() {
 <summary>
   বাংলায় পড়ুন
 </summary>
+<br >
 
 ```js
 
 ```
 
-<br >
-  
--
-
-</details>
-
-<details>
-<summary>
-  বাংলায় পড়ুন
-</summary>
-
-```js
-
-```
-
-<br >
-  
--
-
-</details>
-
-<details>
-<summary>
-  বাংলায় পড়ুন
-</summary>
-
-```js
-
-```
-
-<br >
-  
 -
 
 </details>
